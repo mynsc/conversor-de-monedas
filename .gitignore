@@ -1,0 +1,7 @@
+src/.env
+
+.vscode/*
+
+bin/*
+
+run.sh
