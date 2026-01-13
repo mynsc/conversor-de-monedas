@@ -19,7 +19,7 @@ public class AppConfig {
 
     public static ConversionRatesByAPI getConversionRatesByAPI(String json) {
         Gson gson = new GsonBuilder()
-            .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
+            .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
             .setPrettyPrinting()    
             .create();
 

@@ -11,7 +11,7 @@ import com.mynsc.conversor.aplicacion.DataBaseClient;
 public class Client {
     public DataBaseClient dataBaseClient;
     
-    public Client(int amount, String baseCode, String targetCode) {
+    public Client(double amount, String baseCode, String targetCode) {
         dataBaseClient = new DataBaseClient(amount, baseCode, targetCode);
     }
 

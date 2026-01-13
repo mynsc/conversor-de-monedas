@@ -1,6 +1,6 @@
 package com.mynsc.conversor.modelos;
 
-public record ConversionRatesByAPI (String conversion_rate) {
+public record ConversionRatesByAPI (Double conversion_rate) {
     // {
     //     "result": "success",
     //     "documentation": "https://www.exchangerate-api.com/docs",

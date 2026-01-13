@@ -1,11 +1,11 @@
 package com.mynsc.conversor.aplicacion;
 
 public class DataBaseClient {
-    private int amount;
+    private double amount;
     private String baseCode;
     private String targetCode;
 
-    public DataBaseClient(int amount, String baseCode, String targetCode) {
+    public DataBaseClient(double amount, String baseCode, String targetCode) {
         this.amount = amount;
         this.baseCode = baseCode;
         this.targetCode = targetCode;
@@ -15,7 +15,7 @@ public class DataBaseClient {
         return "https://v6.exchangerate-api.com/v6/" + apiKey + "/pair/" + baseCode + "/" + targetCode ;
     }
 
-    public int getAmount() {
+    public double getAmount() {
         return amount;
     }
 
