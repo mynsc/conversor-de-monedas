@@ -23,14 +23,14 @@ public class Menu {
 
                 \tMonedas base
                 1. Sol (PEN)
-                2. Peso argetino (ARS)
+                2. Peso argentino (ARS)
                 3. Euro (EUR)
                 4. Yen (JPY)
                 5. Won surcoreano (KRW)
                 6. Dólar estadounidense (USD)
                 7. Salir del programa
 
-                Ingrese el monto y el código de moneda (Ej. 23 USD, 8 YJPY, 9 PEN) ---> """);
+                Ingrese el monto y el código de moneda (Ej. 23 USD, 8 JPY, 9 PEN) ---> """);
             try {
                 value = inpScanner.nextLine();
                 if (value.equals("7")) return false;
@@ -61,7 +61,7 @@ public class Menu {
 
                 \tMonedas objetivo
                 1. Sol (PEN)
-                2. Peso argetino (ARS)
+                2. Peso argentino (ARS)
                 3. Euro (EUR)
                 4. Yen (JPY)
                 5. Won surcoreano (KRW)
