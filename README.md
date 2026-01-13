@@ -56,7 +56,7 @@ conversor de monedas/
 
 ## 🚀 Requisitos Previos
 
-- Java Development Kit (JDK) 11 o superior
+- Java Development Kit (JDK) 17 o superior
 - Conexión a Internet (para consultar tasas de cambio)
 - API Key de [ExchangeRate-API](https://www.exchangerate-api.com/)
 
@@ -124,19 +124,6 @@ Ingrese el número correspondiente de la moneda objetivo ---> 3
 Cantidad convertida: 95.23 EUR
 ```
 
-## 🤝 Contribuciones
-
-Las contribuciones son bienvenidas. Por favor:
-1. Haz fork del proyecto
-2. Crea una rama para tu característica (`git checkout -b feature/nueva-caracteristica`)
-3. Commit tus cambios (`git commit -m 'Agrega nueva característica'`)
-4. Push a la rama (`git push origin feature/nueva-caracteristica`)
-5. Abre un Pull Request
-
-## 📝 Licencia
-
-Este proyecto es de código abierto y está disponible bajo la licencia MIT.
-
 ## 👨‍💻 Autor
 
 **mynsc**
@@ -146,7 +133,3 @@ Este proyecto es de código abierto y está disponible bajo la licencia MIT.
 - [ExchangeRate-API](https://www.exchangerate-api.com/) por proporcionar tasas de cambio actualizadas
 - Google Gson por el procesamiento de JSON
 - Comunidad de Java por las herramientas y recursos
-
----
-
-⭐ Si este proyecto te resultó útil, considera darle una estrella en GitHub
