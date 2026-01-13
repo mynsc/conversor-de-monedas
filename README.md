@@ -73,8 +73,11 @@ conversor de monedas/
    - Obtener una API key gratuita
 
 3. **Configurar variables de entorno:**
-   - Crear archivo `.env` en el directorio `src/`
-   - Agregar la API key:
+   - Copiar el archivo de ejemplo:
+     ```bash
+     cp src/.env.example src/.env
+     ```
+   - Editar `src/.env` y agregar tu API key:
      ```
      API_KEY=tu_api_key_aqui
      ```
@@ -84,12 +87,7 @@ conversor de monedas/
      - `gson-*.jar`
      - `dotenv-java-*.jar`
 
-## ▶️ Ejecución
-
-### Usando el script de shell:
-```bash
-./run.sh Main
-```
+## ▶️ Ejecución.sh Main
 
 ### Manualmente:
 ```bash
@@ -127,9 +125,4 @@ Cantidad convertida: 95.23 EUR
 ## 👨‍💻 Autor
 
 **mynsc**
-
-## 🙏 Agradecimientos
-
-- [ExchangeRate-API](https://www.exchangerate-api.com/) por proporcionar tasas de cambio actualizadas
-- Google Gson por el procesamiento de JSON
 - Comunidad de Java por las herramientas y recursos
