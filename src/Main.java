@@ -1,11 +1,16 @@
+import java.util.Scanner;
+
 import com.mynsc.conversor.modelos.Menu;
 
 public class Main {
     public static void main(String[] args) {
-        // String apiKey = AppConfig.getKey();
-        // String url = DataBaseClient.createUrl(apiKey);
-        // Client client = new Client(url);
+        Scanner inpScanner = new Scanner(System.in);
+        boolean leave = true;
 
-        Menu.printMenu();
+        while (leave) {
+            leave = Menu.printMenu(inpScanner);
+        }
+
+        inpScanner.close();
     }
 }

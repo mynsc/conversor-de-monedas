@@ -11,7 +11,6 @@ public class Converter extends DataBaseClient {
     }
 
     public double makeConvertion() {
-        System.out.println(conversionRate + " y " + getAmount());
         return conversionRate * getAmount();
     }
 
