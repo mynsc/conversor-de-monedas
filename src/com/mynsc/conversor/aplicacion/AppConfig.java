@@ -25,4 +25,12 @@ public class AppConfig {
 
         return gson.fromJson(json, ConversionRatesByAPI.class);
     }
+
+    public static boolean verifyDifferentCode(String[] currency, int option, String baseCode) {
+        if (currency[option - 1].equalsIgnoreCase(baseCode)) {
+            System.out.println("Mismo código de moneda base (" + baseCode + "). Elija uno distinto.");
+            return true;
+        }
+        return false;
+    }
 }

@@ -14,84 +14,118 @@ public class Menu {
         String targetCode = "";
         int option = 0;
         boolean flag = true;
+        String[] currency = {"PEN", "ARS", "EUR", "JPY", "KRW", "USD"};
 
         while (flag) {
             System.out.println("""
                 -----------------------------------------------------------------------
                 \t\tConversor de moneda
 
-                \tMonedas disponibles
+                \tMonedas base
                 1. Sol (PEN)
                 2. Peso argetino (ARS)
                 3. Euro (EUR)
                 4. Yen (JPY)
                 5. Won surcoreano (KRW)
                 6. Dólar estadounidense (USD)
+                7. Salir del programa
 
                 Ingrese el monto y el código de moneda (Ej. 23 USD, 8 YJPY, 9 PEN) ---> """);
             try {
                 value = inpScanner.nextLine();
+                if (value.equals("7")) return false;
                 index = value.indexOf(32);
                 amount = Double.valueOf(value.substring(0, index));
                 baseCode = ((value.substring(index)).strip());
-                System.out.println("-----------------------------------------------------------------------");
-                flag = false;
-            } catch (StringIndexOutOfBoundsException e) {
-                System.out.println("Ingrese  un monto y código adecuados");
+
+                for (int i = 0; i < 6; i++) {
+                    if (baseCode.equalsIgnoreCase(currency[i])) {
+                       flag = false;
+                       break;
+                    }
+                }
+
+                if (flag) {
+                    System.out.println("El código de moneda es incorrecto");
+                }
+            } catch (StringIndexOutOfBoundsException | NumberFormatException e) {
+                System.out.println("Ingrese un monto y/o código adecuados");
             }
         }
 
-        System.out.println("""
-            -----------------------------------------------------------------------
-            \t\tConversor de moneda
+        flag = true;
+        while (flag) {
+            System.out.println("""
+                -----------------------------------------------------------------------
+                \t\tConversor de moneda
 
-            \tCódigos de monedas disponibles
-            1. Sol (PEN)
-            2. Peso argetino (ARS)
-            3. Euro (EUR)
-            4. Yen (JPY)
-            5. Won surcoreano (KRW)
-            6. Dólar estadounidense (USD)
-            7. Salir del programa
+                \tMonedas objetivo
+                1. Sol (PEN)
+                2. Peso argetino (ARS)
+                3. Euro (EUR)
+                4. Yen (JPY)
+                5. Won surcoreano (KRW)
+                6. Dólar estadounidense (USD)
+                7. Salir del programa
 
-            Ingrese el código de la moneda a la que desea convertir ---> """);
-        option = inpScanner.nextInt();
-        System.out.println("-----------------------------------------------------------------------");
+                Ingrese el número correspondiente de la moneda objetivo ---> """);
+            try {
+                option = inpScanner.nextInt();
+                inpScanner.nextLine();
+            } catch (java.util.InputMismatchException e) {
+                System.out.println("Entrada inválida. Debe ingresar un número.");
+                inpScanner.nextLine();
+                return true;
+            }
+            System.out.println("-----------------------------------------------------------------------");
 
-        switch(option) {
-            case 1: {
-                targetCode = "PEN";
-                break;
-            }
-            case 2: {
-                targetCode = "ARS";
-                break;
-            }
-            case 3: {
-                targetCode = "EUR";
-                break;
-            }
-            case 4: {
-                targetCode = "JPY";
-                break;
-            }
-            case 5: {
-                targetCode = "KRW";
-                break;
-            }
-            case 6: {
-                targetCode = "USD";
-                break;
-            }
-            case 7: {
-                return false;
-            }
-            default: {
-                System.out.println("Opción inválida, inténtelo nuevamente.");
+            switch(option) {
+                case 1: {
+                    if (AppConfig.verifyDifferentCode(currency, option, baseCode)) break;
+                    targetCode = "PEN";
+                    flag = false;
+                    break;
+                }
+                case 2: {
+                    if (AppConfig.verifyDifferentCode(currency, option, baseCode)) break;
+                    targetCode = "ARS";
+                    flag = false;
+                    break;
+                }
+                case 3: {
+                    if (AppConfig.verifyDifferentCode(currency, option, baseCode)) break;
+                    targetCode = "EUR";
+                    flag = false;
+                    break;
+                }
+                case 4: {
+                    if (AppConfig.verifyDifferentCode(currency, option, baseCode)) break;
+                    targetCode = "JPY";
+                    flag = false;
+                    break;
+                }
+                case 5: {
+                    if (AppConfig.verifyDifferentCode(currency, option, baseCode)) break;
+                    targetCode = "KRW";
+                    flag = false;
+                    break;
+                }
+                case 6: {
+                    if (AppConfig.verifyDifferentCode(currency, option, baseCode)) break;
+                    targetCode = "USD";
+                    flag = false;
+                    break;
+                }
+                case 7: {
+                    return false;
+                }
+                default: {
+                    System.out.println("Opción inválida, inténtelo nuevamente.");
+                }
             }
         }
 
-        if (option != 7)  {
+        if (option >= 1 && option <= 6) {
             Client client = new Client(amount, baseCode, targetCode);
             String apiKey = AppConfig.getKey();
             String url = client.dataBaseClient.createUrl(apiKey);
@@ -99,7 +133,7 @@ public class Menu {
             ConversionRatesByAPI conversionRatesByAPI = AppConfig.getConversionRatesByAPI(json);
             Converter converter = new Converter(client.dataBaseClient, conversionRatesByAPI);
 
-            System.out.println("Cantidad convertida: " + converter.makeConvertion());
+            System.out.println("Cantidad convertida: " + converter.makeConvertion() + " " + targetCode);
         }
 
         return true;
